@@ -14,10 +14,10 @@ class UserSeeder extends Seeder
     {
         User::create(
             [
-                'firstname'=>'admin',
+                'firstname'=>'admin_unesco',
                 'secondname'=>'admin',
-                'email'=>'admin@admin.ru',
-                'password' => \Illuminate\Support\Facades\Hash::make('admin123'),
+                'email'=>'admin_unesco@admin.ru',
+                'password' => \Illuminate\Support\Facades\Hash::make('DWCXWRbx'),
                 'gender' => 'male',
                 'role' => 'Администратор',
                 'verified' => 1,
