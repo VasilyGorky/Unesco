@@ -15,11 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 ///USER////
 Route::get('/', 'User\ItemsController@index');
-    Route::resource('item', 'User\ItemsController');
-    Route::get('/page/{id}','User\PageController@show');
+Route::resource('item', 'User\ItemsController');
+Route::get('/page/{id}','User\PageController@show');
 Route::resource('profile', 'User\ProfileController');
 Route::resource('publication', 'User\PublicationController');
 Route::any('/download/{id}', 'User\PublicationController@getDownload');
+Route::resource('report', 'User\ReportController');
+Route::any('/download/{id}', 'User\ReportController@getDownload');
 Route::get('/forum', 'User\ForumController@show');
 
 

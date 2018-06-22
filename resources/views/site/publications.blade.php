@@ -6,6 +6,11 @@
 @section('content')
 
     <div style="margin-top: 60px">
+
+            <div align="right" style="margin-top: 30px;  margin-left: 75%; margin-bottom: -50px;">
+                {{ $publications->links() }}
+            </div>
+
         @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->isAdmin())
 
             {!! Form::open(['route' => 'publication.create', 'method'=>'get']) !!}
@@ -14,15 +19,8 @@
 
             {!! Form::close() !!}<br>
         @endif
-
-        <center>
-            <div align="" style="margin-top: 30px;  margin-left: 48%">
-                {{ $publications->links() }}
-            </div>
-        </center>
-
         @foreach($publications as $publication)
-            <div class="card" style="margin-top: 30px; margin-left: 17%; width: 900px;  ">
+            <div class="card" style="margin-top: 10px; margin-left: 17%; width: 900px;  ">
                 <div class="card-header" style="margin-top: 0px;"><h6>{{$publication->author}}</h6>
                 @if($publication->file != '0')
                     {!! Form::open(['url' => 'download/'.$publication->id,'method' => 'post','file' => true, 'enctype'=>"multipart/form-data"]) !!}

@@ -26,11 +26,12 @@
 <body>
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <button class="w3-button" onclick="w3_open()" style="color: black">☰</button>
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ asset('img\Unesco-Logo.jpg') }}" style="width: 100px">
             <img src="{{ asset('img\unesco.gif') }}" >
         </a>
-        <button class="w3-button  " onclick="w3_open()">☰</button>
+
         <div class="container">
             <a class="navbar-brand" href="{{ url('/admin/user') }}">
                 Пользователи

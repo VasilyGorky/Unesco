@@ -7,7 +7,7 @@
 <body>
 
 <!-- Sidebar -->
-<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none; margin-top: 30px; width: 250px; " id="mySidebar">
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none; margin-top: 45px; width: 250px; " id="mySidebar">
     <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
 
     <a href="{{ url('/') }}" class="w3-bar-item w3-button">Главная</a>
@@ -31,7 +31,7 @@
     </button>
     <div id="science" class="w3-hide w3-white w3-card">
         <a href="{{ url('admin/page/7') }}" class="w3-bar-item w3-button">Направления</a>
-        <a href="{{ url('admin/page/8') }}" class="w3-bar-item w3-button">Публикации</a>
+        <a href="{{ url('publication') }}" class="w3-bar-item w3-button">Публикации</a>
         <a href="{{ url('admin/page/9') }}" class="w3-bar-item w3-button">Проекты</a>
         <a href="{{ url('admin/page/10') }}" class="w3-bar-item w3-button">Научные работы</a>
         <a href="{{ url('admin/page/11') }}" class="w3-bar-item w3-button">Отчеты</a>
