@@ -20,6 +20,7 @@ Route::resource('item', 'User\ItemsController');
 Route::get('/page/{id}','User\PageController@show');
 
 Route::resource('profile', 'User\ProfileController');
+Route::any('profile/updatePas/{id}', 'User\ProfileController@updatePas');
 
 Route::resource('publication', 'User\PublicationController');
 Route::any('/downloadPdf/{id}', 'User\PublicationController@getDownload');

@@ -38,6 +38,9 @@
                 {{ Form::submit('Отмена', ['class' => 'btn btn-danger', 'style'=>' margin-top: -63px;']) }}
                 {!! Form::close() !!}
             </div>
+
+
         </div>
+
     </div>
 @endsection

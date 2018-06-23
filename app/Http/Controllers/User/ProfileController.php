@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
@@ -38,7 +39,8 @@ class ProfileController extends Controller
             [
                 'firstname' => 'required|string|max:15',
                 'secondname' => 'required|string|max:15',
-                'email' => 'required|email'
+                'email' => 'required|email',
+                'password' => 'required|password'
             ], $massages);
     }
 
@@ -112,6 +114,22 @@ class ProfileController extends Controller
         abort(404);
     }
 
+    public function updatePas($id)
+    {
+            if ($this->request->isMethod('put')) {
+                $input = $this->request->all();
+
+
+                $this->user->fill($input);
+                $this->user->where('id', $id)->update
+                ([
+                    'password' => Hash::make($input['password']),
+                ]);
+
+                return redirect()->route('profile.show', $id);
+            }
+    }
+
     public function destroy($id)
     {
         $user = $this->user->find($id);
@@ -121,7 +139,7 @@ class ProfileController extends Controller
         }
 
         $user->delete();
-        return redirect()->route('login');
+        return redirect()->route('register');
     }
 
 }
