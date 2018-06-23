@@ -81,7 +81,7 @@
 
                 <a href={{ url('item/'.$item->id) }}>
                     @if($item->image != null)
-                    <img class="card-img-top " src="{{asset('img/'.$item->image)}}"  alt="Card image cap">
+                    <img class="card-img-top " src="{{asset('img/'.$item->image)}}"  width="338" height="190" alt="Card image cap">
                         @else
                         <img class="card-img-top " src="{{asset('img/Unesco-Logo.png')}}"  alt="Card image cap">
                     @endif
