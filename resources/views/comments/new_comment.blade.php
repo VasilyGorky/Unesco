@@ -14,7 +14,7 @@
 		<div class="comment-meta commentmetadata">
 			<div class="intro">
 				<div class="commentDate">
-					только что добавлен                     
+					только что добавлен (Комментарий появится, когда будет проверен)
 				</div>
 			</div>
 			<div class="comment-body">
