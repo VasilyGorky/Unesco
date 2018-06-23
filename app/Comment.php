@@ -12,7 +12,7 @@ class Comment extends Model
 {
 
     protected $fillable = [
-        'id', 'firstname', 'email', 'text', 'parent_id', 'user_id', 'gender'
+        'id', 'firstname', 'email', 'text', 'parent_id', 'user_id', 'gender', 'status',
     ];
 
     /**

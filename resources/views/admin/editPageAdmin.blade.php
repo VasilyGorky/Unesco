@@ -37,11 +37,11 @@
                     <br>
                 </div>
                 <div align="right">
-                    {!! Form::button('Save', ['class' => 'btn btn-primary','type'=>'submit', 'style'=>'margin-right: 90px; ']) !!}
+                    {!! Form::button('Сохранить', ['class' => 'btn btn-primary','type'=>'submit', 'style'=>'margin-right: 90px; ']) !!}
                 </div>
                 {!! Form::close() !!}
                 <div align="right">
-                    {!! Form::open(['url' => 'admin/page/', 'method'=>'get']) !!}
+                    {!! Form::open(['url' => '/', 'method'=>'get']) !!}
                     {{ Form::submit('Отмена', ['class' => 'btn btn-primary', 'style'=>' margin-top: -63px;']) }}
                     {!! Form::close() !!}
                 </div>

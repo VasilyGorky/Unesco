@@ -51,10 +51,6 @@
                 @endforeach
             </div>
 
-
-            {{--<a class="btn btn-default" href="{{ url('item/'.$item->id) }}" role="button"><h5>--}}
-                    {{--{{$item->title}}</h5></a>--}}
-
         <div align="right">
         </div>
     </div>

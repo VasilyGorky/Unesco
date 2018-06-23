@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Report;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
@@ -63,7 +64,10 @@ class ReportController extends Controller
      */
     public function create()
     {
+        if(Auth::user()->isAdmin() or Auth::user()->isWorker()){
         return view('site.addReport');
+        }
+        else return abort(404);
     }
 
     /**
@@ -114,7 +118,10 @@ class ReportController extends Controller
             'year' => $old['year'],
             'file'=> $old['file'],
         ];
+        if(Auth::user()->isAdmin() or Auth::user()->isWorker()){
         return view('site.editReport', ['data' => $data]);
+    }
+else return abort(404);
     }
 
     /**
@@ -164,6 +171,7 @@ class ReportController extends Controller
      */
     public function destroy($id)
     {
+        if(Auth::user()->isAdmin() or Auth::user()->isWorker()){
         $report = $this->report->find($id);
         $file_path = public_path('archive/' . $this->report->file);
         if (File::exists($file_path)) {
@@ -171,6 +179,8 @@ class ReportController extends Controller
         }
         $report->delete();
         return redirect()->route('report.index');
+        }
+        else return abort(404);
     }
 
     /**

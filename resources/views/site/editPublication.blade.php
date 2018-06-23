@@ -2,17 +2,7 @@
 
 @section('content')
 
-    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-
-    <script>
-        tinymce.init({
-            selector: 'textarea',
-            plugins: 'print preview directionality  image link media template  table  hr  anchor toc  lists  help',
-            menubar: true
-        });
-    </script>
-
-    @if(\Illuminate\Support\Facades\Auth::check())
+    @if(\Illuminate\Support\Facades\Auth::user()->isAdmin() or Illuminate\Support\Facades\Auth::user()->isWorker() )
         <div class="container" style="margin-top: 50px;">
             <div class="content">
                 @if(count($errors) > 0)

@@ -22,7 +22,7 @@ class CreateCommentsTable extends Migration
             $table->string('gender');
             $table->text('text');
             $table->integer('parent_id')->unsigned()->nullable(); //разрешаем null;
-            $table->boolean('status')->default(config('comments.show_immediately'));
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
         Schema::table('comments', function ( $table) {

@@ -20,7 +20,7 @@ class AuthAdmin
     public function handle($request, Closure $next)
     {
 
-        if(Auth::check() && Auth::user()->isAdmin() && Auth::user()->isVerified()){
+        if((Auth::check() && Auth::user()->isAdmin() && Auth::user()->isVerified()) or (Auth::check() && Auth::user()->isWorker() && Auth::user()->isVerified())){
             return $next($request);
         }
         abort(404);

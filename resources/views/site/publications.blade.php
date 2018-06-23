@@ -7,7 +7,7 @@
 
     <div style="margin-top: 60px">
 
-            <div align="right" style="margin-top: 30px;  margin-left: 75%; margin-bottom: -50px;">
+            <div align="right" style="margin-top: 30px;  margin-left: 75%;">
                 {{ $publications->links() }}
             </div>
 
@@ -23,7 +23,7 @@
             <div class="card" style="margin-top: 10px; margin-left: 17%; width: 900px;  ">
                 <div class="card-header" style="margin-top: 0px;"><h6>{{$publication->author}}</h6>
                 @if($publication->file != '0')
-                    {!! Form::open(['url' => 'download/'.$publication->id,'method' => 'post','file' => true, 'enctype'=>"multipart/form-data"]) !!}
+                    {!! Form::open(['url' => 'downloadPdf/'.$publication->id,'method' => 'post','file' => true, 'enctype'=>"multipart/form-data"]) !!}
                     <button class="btn float-right btn-primary" style="margin-top: -30px; margin-left: 5px;"><img src="{{asset('img/download.png')}}" style="width: 20px;"></button>
                     {!! Form::close() !!}
                 @endif

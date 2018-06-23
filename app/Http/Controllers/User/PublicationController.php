@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Publication;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
@@ -67,7 +68,10 @@ class PublicationController extends Controller
      */
     public function create()
     {
+        if(Auth::user()->isAdmin() or Auth::user()->isWorker()){
         return view('site.addPublication');
+        }
+        else return abort(404);
     }
 
     /**
@@ -134,7 +138,10 @@ class PublicationController extends Controller
             'file'=> $old['file'],
             'image' => $old['image'],
         ];
+        if(Auth::user()->isAdmin() or Auth::user()->isWorker()){
         return view('site.editPublication', ['data' => $data]);
+        }
+        else return abort(404);
     }
 
     /**
@@ -196,6 +203,7 @@ class PublicationController extends Controller
      */
     public function destroy($id)
     {
+        if(Auth::user()->isAdmin()){
         $publication = $this->publication->find($id);
         if ($this->publication->image != 'book.png') {
             $image_path = public_path('img/' . $this->publication->image);
@@ -209,6 +217,8 @@ class PublicationController extends Controller
         }
         $publication->delete();
         return redirect()->route('publication.index');
+    }
+else return abort(404);
     }
 
     public function getDownload($id)

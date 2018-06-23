@@ -17,7 +17,7 @@ class CreateItemsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->nullable();
             $table->string('title');
-            $table->text('text');
+            $table->longText('text');
             $table->string('description');
             $table->string('image',255);
             $table->timestamps();

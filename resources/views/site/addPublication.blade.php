@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->isAdmin())
+    @if(\Illuminate\Support\Facades\Auth::user()->isWorker() || \Illuminate\Support\Facades\Auth::user()->isAdmin())
 
         <div class="container" style="margin-top: 50px">
             <div class="content">
@@ -19,7 +19,6 @@
 
                 {!! Form::open(['route'=>['publication.store'],'method' => 'post','file' => true, 'enctype'=>"multipart/form-data"]) !!}
                 @csrf
-                {{--<input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id}}">--}}
                 {{ Form::label('author','Автор:') }}
                 {{ Form::text('author','', ['required' => 'required', 'class' => 'form-control']) }}<br>
 

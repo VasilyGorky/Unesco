@@ -42,10 +42,10 @@
                     <a class="navbar-brand" href="{{ url('page/12') }}">
                         Студенту
                     </a>
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('page/13') }}">
                         Абитуриенту
                     </a>
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('page/17') }}">
                         Контакты
                     </a>
 

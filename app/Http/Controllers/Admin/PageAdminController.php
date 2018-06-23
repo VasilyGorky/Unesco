@@ -35,7 +35,7 @@ class PageAdminController extends Controller
         return Validator::make($input,
             [
                 'title' => 'required|string|max:100',
-                'text' => 'required'
+                'text' => 'required|'
             ], $massages);
     }
 

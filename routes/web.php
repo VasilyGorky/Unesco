@@ -16,12 +16,17 @@ use Illuminate\Support\Facades\Route;
 ///USER////
 Route::get('/', 'User\ItemsController@index');
 Route::resource('item', 'User\ItemsController');
+
 Route::get('/page/{id}','User\PageController@show');
+
 Route::resource('profile', 'User\ProfileController');
+
 Route::resource('publication', 'User\PublicationController');
-Route::any('/download/{id}', 'User\PublicationController@getDownload');
+Route::any('/downloadPdf/{id}', 'User\PublicationController@getDownload');
+
 Route::resource('report', 'User\ReportController');
-Route::any('/download/{id}', 'User\ReportController@getDownload');
+Route::any('/downloadZip/{id}', 'User\ReportController@getDownload');
+
 Route::get('/forum', 'User\ForumController@show');
 
 
@@ -31,7 +36,6 @@ Route::get('/forum', 'User\ForumController@show');
 ///ADMIN////
 
 Route::resource('admin/item', 'Admin\ItemsAdminController')->middleware('authadmin');
-//Route::get('admin/item/{id}', 'Admin\ItemsAdminController@show')->middleware('authadmin')->name('itemshow');
 Route::resource('admin/user','Admin\UsersAdminController')->middleware('authadmin');
 
 Route::get('admin/page/{id}', 'Admin\PageAdminController@show')->middleware('authadmin')->name('pageshow');
@@ -39,6 +43,9 @@ Route::get('admin/page/{id}/edit', 'Admin\PageAdminController@edit')->middleware
 Route::put('admin/page/update/{id}', 'Admin\PageAdminController@update')->middleware('authadmin');
 
 Route::delete('admin/item/comment/{id}', 'CommentController@destroy');
+Route::get('admin/comments', 'CommentController@index');
+Route::delete('admin/comments/delete/{id}', 'CommentController@destroy');
+Route::any('admin/comments/{id}', 'CommentController@update');
 
 ///ADMIN////
 

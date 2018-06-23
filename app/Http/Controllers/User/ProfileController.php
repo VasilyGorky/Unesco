@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
@@ -71,7 +72,11 @@ class ProfileController extends Controller
             'secondname' => $old['secondname'],
             'email' => $old['email']
         ];
+
+        if(Auth::user()->id==$old['id']){
         return view('site.editProfile', ['data' => $data]);
+        }
+        else abort(404);
     }
 
     /**
