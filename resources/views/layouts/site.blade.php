@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" media="all" href="{{asset('css')}}/app.css" />
     <link rel="stylesheet" type="text/css" media="all" href="{{asset('comments/css')}}/comments.css" />
 
-
+    <link rel="shortcut icon" href="{{ asset('img\favicon.png') }}" type="image/png">
 </head>
 <body>
 <div id="app">
