@@ -33,7 +33,7 @@
         <a href="{{ url('page/7') }}" class="w3-bar-item w3-button">Направления</a>
         <a href="{{ url('publication') }}" class="w3-bar-item w3-button">Публикации</a>
         <a href="{{ url('page/9') }}" class="w3-bar-item w3-button">Проекты</a>
-        <a href="{{ url('page/10') }}" class="w3-bar-item w3-button">Научные работы</a>
+        <a href="{{ url('article') }}" class="w3-bar-item w3-button">Научные работы</a>
         <a href="{{ url('report') }}" class="w3-bar-item w3-button">Отчеты</a>
     </div>
 

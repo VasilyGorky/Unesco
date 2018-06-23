@@ -39,8 +39,8 @@
                         {{ Form::label('text','Новое фото:') }}
                         {{Form::file('image')}}<br><br>
 
-                        Публикацию <b>(pdf)</b>: {{$data['file']}}
-                        {{ Form::label('text',' Загрузить новую публикацию (pdf):') }}
+                        Публикация <b>(pdf)</b>: {{$data['file']}}
+                        <br>{{ Form::label('text',' Загрузить новую публикацию (pdf):') }}
                         {{Form::file('file')}}<br><br>
                     </div>
                     {!! Form::button('Сохранить', ['class' => 'btn btn-primary','type'=>'submit', 'style'=>'margin-right: 90px; ']) !!}

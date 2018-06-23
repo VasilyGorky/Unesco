@@ -50,6 +50,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Item::class);
     }
+    public function article()
+    {
+        return $this->hasMany(Article::class);
+    }
 
     /**
      * Метод возвращает true, если пользователь администратор, в противном случае false

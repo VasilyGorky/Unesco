@@ -147,17 +147,23 @@ else return abort(404);
                 if ($this->request->file) {
                     $fileName = time() . '.' . $this->request->file->getClientOriginalExtension();
                     $this->request->file->move(public_path('archive'), $fileName);
-                } else {
-                    $fileName = $this->report->file;
                 }
 
-
-                $this->report->where('id', $id)->update
-                ([
-                    'year' => $input['year'],
-                    'file'=> $fileName?:'0',
-                ]);
-                return redirect()->route('report.index');
+                if ($this->request->file) {
+                    $this->report->where('id', $id)->update
+                    ([
+                        'year' => $input['year'],
+                        'file' => $fileName,
+                    ]);
+                    return redirect()->route('report.index');
+                }
+                else{
+                    $this->report->where('id', $id)->update
+                    ([
+                        'year' => $input['year'],
+                    ]);
+                    return redirect()->route('report.index');
+                }
             }
         }
         abort(404);

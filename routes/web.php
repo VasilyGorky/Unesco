@@ -25,6 +25,9 @@ Route::any('profile/updatePas/{id}', 'User\ProfileController@updatePas');
 Route::resource('publication', 'User\PublicationController');
 Route::any('/downloadPdf/{id}', 'User\PublicationController@getDownload');
 
+Route::resource('article', 'User\ArticleController');
+Route::any('/uploadPdf/{id}', 'User\ArticleController@getDownload');
+
 Route::resource('report', 'User\ReportController');
 Route::any('/downloadZip/{id}', 'User\ReportController@getDownload');
 

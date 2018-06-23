@@ -165,20 +165,27 @@ class ItemsAdminController extends Controller
                 if ($this->request->image) {
                     $photoName = time() . '.' . $this->request->image->getClientOriginalExtension();
                     $this->request->image->move(public_path('img'), $photoName);
-                } else {
-                    $photoName = $this->item->image;
-
                 }
 
-
-                $this->item->where('id', $id)->update
-                ([
-                    'title' => $input['title'],
-                    'description' => $input['description'],
-                    'text' => $input['text'],
-                    'image' => $photoName?:'Unesco-Logo.png',
-                ]);
-               return redirect()->route('item.show', $id);
+                if($this->request->file) {
+                    $this->item->where('id', $id)->update
+                    ([
+                        'title' => $input['title'],
+                        'description' => $input['description'],
+                        'text' => $input['text'],
+                        'image' => $photoName,
+                    ]);
+                    return redirect()->route('item.show', $id);
+                }
+                else{
+                    $this->item->where('id', $id)->update
+                    ([
+                        'title' => $input['title'],
+                        'description' => $input['description'],
+                        'text' => $input['text'],
+                    ]);
+                    return redirect()->route('item.show', $id);
+                }
 //                return view('admin.itemAdmin', ['item' => $this->item]);
 
             }

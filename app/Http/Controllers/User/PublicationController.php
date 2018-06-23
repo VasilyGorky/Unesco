@@ -167,27 +167,56 @@ class PublicationController extends Controller
                 if ($this->request->image) {
                     $photoName = time() . '.' . $this->request->image->getClientOriginalExtension();
                     $this->request->image->move(public_path('img'), $photoName);
-                } else {
-                    $photoName = $this->publication->image;
                 }
                 if ($this->request->file) {
                     $fileName = time() . '.' . $this->request->file->getClientOriginalExtension();
                     $this->request->file->move(public_path('document'), $fileName);
-                } else {
-                    $fileName = $this->publication->file;
                 }
 
-
+if($this->request->image && $this->request->file){
                 $this->publication->where('id', $id)->update
                 ([
                     'author' => $input['author'],
                     'name' => $input['name'],
                     'city' => $input['city'],
                     'year' => $input['year'],
-                    'file'=> $fileName?:'0',
-                    'image' => $photoName?:'book.png',
+                    'file'=> $fileName,
+                    'image' => $photoName,
                 ]);
                 return redirect()->route('publication.index');
+}
+elseif($this->request->image){
+    $this->publication->where('id', $id)->update
+    ([
+        'author' => $input['author'],
+        'name' => $input['name'],
+        'city' => $input['city'],
+        'year' => $input['year'],
+        'file'=> $fileName,
+    ]);
+    return redirect()->route('publication.index');
+}
+elseif($this->request->file){
+    $this->publication->where('id', $id)->update
+    ([
+        'author' => $input['author'],
+        'name' => $input['name'],
+        'city' => $input['city'],
+        'year' => $input['year'],
+        'image' => $photoName,
+    ]);
+    return redirect()->route('publication.index');
+}
+else{
+    $this->publication->where('id', $id)->update
+    ([
+        'author' => $input['author'],
+        'name' => $input['name'],
+        'city' => $input['city'],
+        'year' => $input['year'],
+    ]);
+    return redirect()->route('publication.index');
+}
 //                return view('admin.itemAdmin', ['item' => $this->item]);
 
             }

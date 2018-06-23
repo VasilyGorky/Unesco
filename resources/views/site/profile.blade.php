@@ -4,7 +4,7 @@
     @include('site.sidebar')
 @endsection
 @php
-    $items = $user->item;
+    $articles = $user->article;
 @endphp
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,9 +51,9 @@
                Все статьи пользователя:  <i class="fa fa-caret-down"></i>
             </button>
             <div id="article" class="w3-hide w3-white w3-card" style="width: 850px" >
-                @foreach($items as $item)
-                <a style="border: 1px solid black; margin-bottom: 10px" class="btn btn-default" href="{{ url('item/'.$item->id) }}" role="button"><h5>
-                        {{$item->title}}</h5></a><br>
+                @foreach($articles as $article)
+                <a style="border: 1px solid black; margin-bottom: 10px" class="btn btn-default" href="{{ url('$article/'.$article->id) }}" role="button"><h7>
+                        {{str_limit($article->title,40)}}</h7></a><br>
                 @endforeach
             </div>
 @endif
