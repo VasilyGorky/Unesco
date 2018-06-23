@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ asset('/img/1k.png') }}" alt="Second slide">
+                    <img class="d-block w-100" src="{{ asset('/img/4k.png') }}" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
                         <div style="background: black; font-size: 25px; color: white;">
                         <p> Соглашение об открытии было подписано 22.03.98 г. генеральным секретарем ЮНЕСКО Федерико Майором и

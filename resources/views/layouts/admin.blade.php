@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>UnescoAdmin</title>
-
+1k
     <!-- Scripts -->
     <script type="text/javascript" src="{{asset('js')}}/app.js" ></script>
     <script type="text/javascript" src="{{asset('comments/js')}}/comment-reply.js" ></script>
