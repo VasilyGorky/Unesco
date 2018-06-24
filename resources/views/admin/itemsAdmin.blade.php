@@ -26,7 +26,7 @@
             <div class="" style="border-bottom: 1px solid #d6d8db;">
 
                 <div style=" margin-bottom: -20px;"><a class="btn btn-default" href="{{ url('admin/item/'.$item->id) }}" role="button">"{{str_limit($item->title,70)}}"</a></div>
-                <div style="margin-left: 65%;"> <b>Создана: </b> {{$item->created_at}}</div>
+                <div style="margin-left: 63%;"> <b>Создана: </b> {{$item->created_at}}</div>
 
                 <div align="right" style="margin-bottom: 10px">
                     @if(\Illuminate\Support\Facades\Auth::check())

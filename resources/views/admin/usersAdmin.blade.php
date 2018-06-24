@@ -110,7 +110,7 @@
                                     <td>{{ $user->id }}</td>
                                     <td>{{ $user->role}}</td>
                                         <td><a class="btn btn-default" style="margin-top: -10px;" href="{{ url('profile/'.$user->id) }}">{{$user->firstname}}</a></td>
-                                        <td><a class="btn btn-default" style="margin-top: -10px;" href="{{ url('profile/'.$user->id) }}">{{$user->secondname}}</a></td>>
+                                        <td><a class="btn btn-default" style="margin-top: -10px;" href="{{ url('profile/'.$user->id) }}">{{$user->secondname}}</a></td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->gender }}</td>
                                     <td>{{ $user->created_at }}</td>
