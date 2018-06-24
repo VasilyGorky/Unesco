@@ -7,36 +7,6 @@
 @section('content')
     <div class="container" style="margin-top: 40px;">
         <p><a class="btn btn-default" href="{{ url('/') }}" role="button">&laquo; Back</a></p>
-        {{--<div>
-            <div>
-
-                <h2 style="border-bottom: 1px solid #d6d8db">{{$item->description}}</h2> <br>
-
-               @php
-                   $user = $item->users;
-                $firstname = $user->firstname;
-               $secondname = $user->secondname;
-               $id = $user->id;
-                @endphp
-                <p align="right"><b>Автор: </b><a class="btn btn-default" href="{{ url('profile/'.$id) }}">{{$firstname}} {{$secondname}}</a></p>
-
-                <h3>"{{$item->title}}"</h3>
-               @if($item->image != null)
-                       <div class="image">
-                          <img src="{{asset('img/'.$item->image)}}" width="600" height="300">
-                       </div>
-
-                   @else
-                       <div class="image">
-                          <img src="{{asset('img/Unesco-Logo.jpg')}}" width="600" height="300">
-                       </div>
-
-                       @endif
-                <p>{!!  $item->text!!}  </p>
-
-                <p><b>Дата публицкации: </b> {{$item->created_at}}</p>
-            </div>
-        </div>--}}
         <center>
         <div class="card mb-3" style="width: 900px;">
             <div class="card-header" style="">{{$item->title}}</div>

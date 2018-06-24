@@ -26,7 +26,7 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+    <nav class="navbar navbar-expand-md navbar-light navbar-laravel" style="z-index: 2;top: 0;left: 0;right: 0;">
         <button class="w3-button" onclick="w3_open()" style="color: black">☰</button>
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ asset('img\Unesco-Logo.jpg') }}" style="width: 100px">

@@ -68,7 +68,7 @@
         </div>
         </center>
         <center>
-            <div align="" style="margin-top: 50px;  margin-left: 48%">
+            <div style="margin-top: 50px;  margin-left: 83%">
                 {{ $items->links() }}
             </div>
         </center>
@@ -77,7 +77,7 @@
             @if($item->status==true)
         <div class="card-deck col-md-4 col-sm-12 col-xs-12 my-col text-center" style="width: 400px;  margin-left: 40px;  display: inline-block;">
 
-            <div class="card" style=" height: 450px; margin-top: 20px;">
+            <div class="card" style=" height: 400px; margin-top: 20px;">
 
                 <a href={{ url('item/'.$item->id) }}>
                     @if($item->image != null)
@@ -102,7 +102,7 @@
 
     </div>
     <center>
-        <div align="" style="margin-top: 100px;  margin-left: 48%">
+        <div style="margin-top: 50px;  margin-left: 83%">
             {{ $items->links() }}
         </div>
     </center>
