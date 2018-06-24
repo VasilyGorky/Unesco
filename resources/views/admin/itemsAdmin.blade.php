@@ -34,16 +34,26 @@
                 @endphp
                 <div style="margin-left: 450px;"><b>Автор: </b><a class="btn btn-default" href="{{ url('profile/'.$id) }}">{{$firstname}} {{$secondname}}</a> <b>/ Создана: </b> {{$item->created_at}}</div>
 
-                <div align="right" style="margin-bottom: -40px">
+                <div align="right" style="margin-bottom: 10px">
                     @if(\Illuminate\Support\Facades\Auth::check())
 
                         {!! Form::open(['url' => 'admin/item/'.$item->id, 'method'=>'delete']) !!}
-                        {{ Form::submit('Удалить x', ['class' => 'btn','style'=>'margin-right: 100px; margin-top: -60px;']) }}
+                        <button class="btn btn-danger float-right btn-primary" style="margin-top: -30px; margin-left: 5px;"><img src="{{asset('img/delete.png')}}" style="width: 20px;"></button>
                         {!! Form::close() !!}
 
                         {!! Form::open(['url' => 'admin/item/'.$item->id.'/edit', 'method'=>'get']) !!}
-                        {{ Form::submit('Изменить', ['class' => 'btn','style'=>' margin-top: -105px;']) }}
+                        <button class="btn btn-success float-right btn-primary" style="margin-top: -30px; "><img src="{{asset('img/edit.png')}}" style="width: 20px;"></button>
                         {!! Form::close() !!}
+
+                        @if($item->status == 0)
+                                {!! Form::open(['url' => 'admin/item/hidden/'.$item->id, 'method'=>'put']) !!}
+                                <button class="btn btn-primary float-right btn-primary" style="margin-top: -30px; margin-right: 5px;"><img src="{{asset('img/eye-open.png')}}" style="width: 20px; "></button>
+                                {!! Form::close() !!}
+                        @else
+                                {!! Form::open(['url' => 'admin/item/hidden/'.$item->id, 'method'=>'put']) !!}
+                                <button class="btn btn-primary float-right btn-primary" style="margin-top: -30px; margin-right: 5px;"><img src="{{asset('img/eye-close.png')}}" style="width: 20px; "></button>
+                                {!! Form::close() !!}
+                        @endif
 
                     @endif
                 </div>

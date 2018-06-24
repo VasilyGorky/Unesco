@@ -40,6 +40,7 @@ Route::get('/forum', 'User\ForumController@show');
 ///ADMIN////
 
 Route::resource('admin/item', 'Admin\ItemsAdminController')->middleware('authadmin');
+Route::any('admin/item/hidden/{id}', 'Admin\ItemsAdminController@updateHidden')->middleware('authadmin');
 Route::resource('admin/user','Admin\UsersAdminController')->middleware('authadmin');
 
 Route::get('admin/page/{id}', 'Admin\PageAdminController@show')->middleware('authadmin')->name('pageshow');

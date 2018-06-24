@@ -24,7 +24,7 @@
                              <button class="btn btn-success float-right btn-primary" style="margin-top: -30px; margin-left: 5px;"><img src="{{asset('img/eye-open.png')}}" style="width: 20px; "></button>
                             {!! Form::close() !!}
                         @endif
-                        @else
+                    @else
                         @if(\Illuminate\Support\Facades\Auth::user()->isAdmin())
                             {!! Form::open(['url' => 'admin/comments/'.$comment->id, 'method'=>'put']) !!}
                             <button class="btn btn-success float-right btn-primary" style="margin-top: -30px; margin-left: 5px;"><img src="{{asset('img/eye-close.png')}}" style="width: 20px; "></button>

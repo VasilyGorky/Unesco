@@ -54,7 +54,7 @@ class ItemsAdminController extends Controller
     public function index()
     {
         if (view()->exists('admin.itemsAdmin')) {
-            $items = $this->item->orderByRaw('created_at desc')->paginate(9);
+            $items = $this->item->orderByRaw('created_at desc')->paginate(20);
             return view('admin.itemsAdmin', ['items' => $items]);
         }
         abort(404);
@@ -191,6 +191,25 @@ class ItemsAdminController extends Controller
             }
         }
         abort(404);
+    }
+
+    public function updateHidden($id)
+    {
+
+        $item = $this->item->find($id);
+
+        if ($item->status == false) {
+            $item->where('id', $id)->update
+            ([
+                'status' => true,
+            ]);
+        } else {
+            $item->where('id', $id)->update
+            ([
+                'status' => false,
+            ]);
+        }
+        return redirect()->back();
     }
 
     /**
