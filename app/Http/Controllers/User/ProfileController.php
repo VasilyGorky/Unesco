@@ -40,7 +40,6 @@ class ProfileController extends Controller
                 'firstname' => 'required|string|max:15',
                 'secondname' => 'required|string|max:15',
                 'email' => 'required|email',
-                'password' => 'required|password'
             ], $massages);
     }
 

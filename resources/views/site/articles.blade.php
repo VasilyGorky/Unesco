@@ -22,9 +22,15 @@
         @foreach($articles as $article)
             @php
                 $user = $article->users;
+                if($user!=null){
              $firstname = $user->firstname;
             $secondname = $user->secondname;
             $id = $user->id;
+            }
+            else{
+            $firstname = 'Не найден';
+            $secondname = '';
+            }
             @endphp
 
             <div class="card" style="width: 1100px; margin-left: 10%">
