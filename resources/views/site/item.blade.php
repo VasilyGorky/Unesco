@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-    <div class="container" style="margin-top: 40px;">
+    <div class="container" style="margin-top: 40px; margin-left: 16%;">
         <p><a class="btn btn-default" href="{{ url('/') }}" role="button">&laquo; Back</a></p>
-        <center>
+
         <div class="card mb-3" style="width: 900px;">
             <div class="card-header" style="">{{$item->title}}</div>
 
@@ -17,7 +17,7 @@
                 <p class="card-text"><small class="text-muted">{{$item->created_at}}</small></p>
             </div>
         </div>
-        </center>
+
     </div>
 
 @endsection
