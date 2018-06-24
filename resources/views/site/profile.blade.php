@@ -45,7 +45,7 @@
         </div>
 
 @if($user->role=='Работник')
-    @if($user->article!=null)
+
             {{--<button class="w3-button w3-block w3-left-align" style="width: 400px" onclick="article()">
                Все статьи пользователя:  <i class="fa fa-caret-down"></i>
             </button>
@@ -54,8 +54,8 @@
                 <a style="border: 1px solid black; margin-bottom: 10px" class="btn btn-default" href="{{ url('$article/'.$article->id) }}" role="button"><h7>
                         {{str_limit($article->title,40)}}</h7></a><br>
                 @endforeach--}}
-            </div>
-        @endif
+            {{--</div>--}}
+
 @endif
         <div align="right">
         </div>
