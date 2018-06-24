@@ -10,7 +10,7 @@
             <div align="right" style="margin-top: 30px;  margin-left: 75%;">
                 {{ $publications->links() }}
             </div>
-
+<div style="margin-left: 17%; margin-top: -50px; margin-bottom: 30px;"><h3>Публикации</h3></div>
         @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->isAdmin())
 
             {!! Form::open(['route' => 'publication.create', 'method'=>'get']) !!}

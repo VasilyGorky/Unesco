@@ -12,7 +12,7 @@
             <div align="right" style="margin-top: 30px;  margin-left: 75%; margin-bottom: -50px;">
                 {{ $reports->links() }}
             </div>
-
+        <div style="margin-left: 17%; margin-top: -50px; margin-bottom: 30px;"><h3>Отчеты</h3></div>
         @if( \Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->isWorker())
 
             {!! Form::open(['route' => 'report.create', 'method'=>'get']) !!}

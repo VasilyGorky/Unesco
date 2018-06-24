@@ -11,6 +11,7 @@
                 {{ $articles->links() }}
             </div>
         </center>
+        <div style="margin-left: 10%; margin-top: 50px; margin-bottom: 30px;"><h3>Научные работы</h3></div>
         @if(\Illuminate\Support\Facades\Auth::user()->isAdmin() || \Illuminate\Support\Facades\Auth::user()->isWorker())
 
             {!! Form::open(['route' => 'article.create', 'method'=>'get']) !!}
