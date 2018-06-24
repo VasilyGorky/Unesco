@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.site')
 
 @section('content')
     @if(\Illuminate\Support\Facades\Auth::user()->isWorker() || \Illuminate\Support\Facades\Auth::user()->isAdmin())
