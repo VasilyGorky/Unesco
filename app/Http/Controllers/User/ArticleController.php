@@ -224,9 +224,6 @@ else{
         $headers = array(
             'Content-Type' => 'application/pdf',
         );
-        $user = $article->users;
-        $firstname = $user->firstname;
-        $secondname = $user->secondname;
-        return response()->download($file, $article->type."-".$firstname." ".$secondname.".pdf",$headers);
+        return response()->download($file, $article->type."-".$article->author.".pdf",$headers);
     }
 }

@@ -25,7 +25,7 @@
             <div class="card" style="width: 1100px; margin-left: 10%; margin-top: 10px;">
                 <div class="card-header" style="margin-top: 0px;"><h6 style="margin-top: -2px;">АВТОР: <a class="btn btn-default" href="{{ url($article->link) }}">{{$article->author}}</a></h6>
                     <div style="margin-top: -20px">
-                        @if($article->file != '0')
+                        @if($article->file != null)
                         {!! Form::open(['url' => 'uploadPdf/'.$article->id,'method' => 'post','file' => true, 'enctype'=>"multipart/form-data"]) !!}
                         <button class="btn float-right btn-primary" style="margin-top: -30px; margin-left: 5px;"><img src="{{asset('img/download.png')}}" style="width: 20px;"></button>
                         {!! Form::close() !!}
