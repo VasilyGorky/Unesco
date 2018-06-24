@@ -19,9 +19,14 @@
 
                 {!! Form::open(['route'=>['article.store'],'method' => 'post','file' => true, 'enctype'=>"multipart/form-data"]) !!}
                 @csrf
-                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id}}">
                 {{ Form::label('title','Название:') }}
                 {{ Form::text('title','', ['required' => 'required', 'class' => 'form-control']) }}<br>
+
+                {{ Form::label('author','Автор:') }}
+                {{ Form::text('author','', ['required' => 'required', 'class' => 'form-control']) }}<br>
+
+                {{ Form::label('link','Ссылка на автора http://basilizu.beget.tech/(profile/{id}):') }}
+                {{ Form::text('link','', ['class' => 'form-control']) }}<br>
 
                 {{ Form::label('published','Где и когда опубликована работа:') }}
                 {{ Form::text('published','', ['required' => 'required', 'class' => 'form-control']) }}<br>

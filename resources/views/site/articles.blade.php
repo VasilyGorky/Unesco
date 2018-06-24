@@ -11,7 +11,7 @@
                 {{ $articles->links() }}
             </div>
         </center>
-        @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->isWorker())
+        @if(\Illuminate\Support\Facades\Auth::user()->isAdmin() || \Illuminate\Support\Facades\Auth::user()->isWorker())
 
             {!! Form::open(['route' => 'article.create', 'method'=>'get']) !!}
 
@@ -20,33 +20,21 @@
             {!! Form::close() !!}<br>
         @endif
         @foreach($articles as $article)
-            @php
-                $user = $article->users;
-                if($user!=null){
-             $firstname = $user->firstname;
-            $secondname = $user->secondname;
-            $id = $user->id;
-            }
-            else{
-            $firstname = 'Не найден';
-            $secondname = '';
-            }
-            @endphp
 
             <div class="card" style="width: 1100px; margin-left: 10%">
-                <div class="card-header" style="margin-top: 0px;"><h6 style="margin-top: -2px;">АВТОР: <a class="btn btn-default" href="{{ url('profile/'.$id) }}">{{$firstname}} {{$secondname}}</a></h6>
+                <div class="card-header" style="margin-top: 0px;"><h6 style="margin-top: -2px;">АВТОР: <a class="btn btn-default" href="{{ url($article->link) }}">{{$article->author}}</a></h6>
                     <div style="margin-top: -20px">
                         @if($article->file != '0')
                         {!! Form::open(['url' => 'uploadPdf/'.$article->id,'method' => 'post','file' => true, 'enctype'=>"multipart/form-data"]) !!}
                         <button class="btn float-right btn-primary" style="margin-top: -30px; margin-left: 5px;"><img src="{{asset('img/download.png')}}" style="width: 20px;"></button>
                         {!! Form::close() !!}
                     @endif
-                    @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->isWorker())
+                    @if(\Illuminate\Support\Facades\Auth::user()->isAdmin() || \Illuminate\Support\Facades\Auth::user()->isWorker())
                         {!! Form::open(['url' => 'article/'.$article->id, 'method'=>'delete']) !!}
                         <button class="btn btn-danger float-right btn-primary" style="margin-top: -30px; margin-left: 5px;"><img src="{{asset('img/delete.png')}}" style="width: 20px;"></button>
                         {!! Form::close() !!}
                     @endif
-                    @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->isWorker())
+                    @if(\Illuminate\Support\Facades\Auth::user()->isAdmin() || \Illuminate\Support\Facades\Auth::user()->isWorker())
                         {!! Form::open(['url' => 'article/'.$article->id.'/edit', 'method'=>'get']) !!}
                         <button class="btn btn-success float-right btn-primary" style="margin-top: -30px; "><img src="{{asset('img/edit.png')}}" style="width: 20px;"></button>
                         {!! Form::close() !!}

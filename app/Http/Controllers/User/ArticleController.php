@@ -44,6 +44,8 @@ class ArticleController extends Controller
                 'view' => 'required',
                 'type' => 'required',
                 'pages' => 'required|numeric',
+                'link' => '',
+                'author' => 'required|string',
 
             ], $massages);
     }
@@ -97,13 +99,14 @@ class ArticleController extends Controller
 
                 $this->article->create
                 ([
-                    'user_id' => $this->request->input('user_id'),
                     'title' => $this->request->input('title'),
                     'view' => $this->request->input('view'),
                     'published' => $this->request->input('published'),
                     'file' => $fileName ?:'',
                     'type' => $this->request->input('type'),
                     'pages' => $this->request->input('pages'),
+                    'link' => $this->request->input('link')?:'#',
+                    'author' => $this->request->input('author'),
                 ]);
                 return redirect()->route('article.index');
             }
@@ -122,13 +125,15 @@ class ArticleController extends Controller
         $old = $this->article->find($id)->toArray();
         $data = [
             'id' => $old['id'],
-            'user_id' => $old['user_id'],
             'title' => $old['title'],
             'view' => $old['view'],
             'published' => $old['published'],
             'file' => $old['file'],
             'type' => $old['type'],
             'pages' => $old['pages'],
+            'link' => $old['link'],
+            'author' => $old['author'],
+
         ];
 
         return view('site.editArticle', ['data' => $data]);
@@ -171,6 +176,8 @@ if($this->request->file) {
         'file' => $fileName,
         'type' => $input['type'],
         'pages' => $input['pages'],
+        'link' => $input['link'],
+        'author' => $input['author'],
     ]);
     return redirect()->route('article.index');
 }
@@ -182,6 +189,8 @@ else{
         'published' => $input['published'],
         'type' => $input['type'],
         'pages' => $input['pages'],
+        'link' => $input['link'],
+        'author' => $input['author'],
     ]);
     return redirect()->route('article.index');
 }

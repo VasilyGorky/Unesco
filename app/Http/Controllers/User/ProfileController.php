@@ -52,7 +52,12 @@ class ProfileController extends Controller
     {
         if (view()->exists('site.profile')) {
             $user = $this->user->find($id);
+            if($user!=null){
             return view('site.profile',['user'=>$user]);
+            }
+            else{
+                abort(404);
+            }
         }
         abort(404);
     }

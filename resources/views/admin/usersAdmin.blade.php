@@ -6,14 +6,14 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 @section('content')
-    <div class="container " >
+    <div class="container" >
 
         <div align="right">
             {{ $users->links() }}
         </div>
 
 
-        <div class="w3-container "  style="margin-left: -110px; margin-top: 50px;">
+        <div class="w3-container"  style="margin-left: -110px; margin-top: 50px;">
             @if(\Illuminate\Support\Facades\Auth::check())
 
                 {!! Form::open(['route' => 'user.create', 'method'=>'get']) !!}
@@ -31,9 +31,9 @@
                         <a class="nav-item nav-link" id="nav-user-tab" data-toggle="tab" href="#nav-user" role="tab" aria-controls="nav-user" aria-selected="false">Пользователи</a>
                     </div>
                 </nav>
-                <div class="tab-content" id="nav-tabContent">
+                <div class="tab-content " id="nav-tabContent" >
                     <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
-                        <table class="w3-table-all w3-hoverable " style="font-size: 13px;">
+                        <table class="w3-table-all w3-hoverable" style="font-size: 13px;">
                             <thead>
                             <tr class="w3-light-grey" >
                                 <th>Verified</th>
@@ -42,7 +42,6 @@
                                 <th>ИМЯ</th>
                                 <th>ФАМИЛИЯ</th>
                                 <th>E-MAIL</th>
-                                <th>ПАРОЛЬ</th>
                                 <th>ПОЛ</th>
                                 <th>СОЗДАН</th>
                                 <th>Изменить</th>
@@ -60,10 +59,9 @@
                                     @endif
                                     <td>{{ $user->id }}</td>
                                     <td>{{ $user->role}}</td>
-                                    <td>{{ $user->firstname }}</td>
+                                    <td><a class="btn btn-default" href="{{ url('profile/'.$user->id) }}">{{$user->firstname}}</a></td>
                                     <td>{{ $user->secondname }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td>{{ $user->password }}</td>
                                     <td>{{ $user->gender }}</td>
                                     <td>{{ $user->created_at }}</td>
                                     <td>
@@ -93,7 +91,6 @@
                                 <th>ИМЯ</th>
                                 <th>ФАМИЛИЯ</th>
                                 <th>E-MAIL</th>
-                                <th>ПАРОЛЬ</th>
                                 <th>ПОЛ</th>
                                 <th>СОЗДАН</th>
                                 <th>Изменить</th>
@@ -115,7 +112,6 @@
                                     <td>{{ $user->firstname }}</td>
                                     <td>{{ $user->secondname }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td>{{ $user->password }}</td>
                                     <td>{{ $user->gender }}</td>
                                     <td>{{ $user->created_at }}</td>
                                     <td>
@@ -145,7 +141,6 @@
                                 <th>ИМЯ</th>
                                 <th>ФАМИЛИЯ</th>
                                 <th>E-MAIL</th>
-                                <th>ПАРОЛЬ</th>
                                 <th>ПОЛ</th>
                                 <th>СОЗДАН</th>
                                 <th>Изменить</th>
@@ -167,7 +162,6 @@
                                         <td>{{ $user->firstname }}</td>
                                         <td>{{ $user->secondname }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td>{{ $user->password }}</td>
                                         <td>{{ $user->gender }}</td>
                                         <td>{{ $user->created_at }}</td>
                                         <td>
@@ -197,7 +191,6 @@
                                 <th>ИМЯ</th>
                                 <th>ФАМИЛИЯ</th>
                                 <th>E-MAIL</th>
-                                <th>ПАРОЛЬ</th>
                                 <th>ПОЛ</th>
                                 <th>СОЗДАН</th>
                                 <th>Изменить</th>
@@ -219,7 +212,6 @@
                                         <td>{{ $user->firstname }}</td>
                                         <td>{{ $user->secondname }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td>{{ $user->password }}</td>
                                         <td>{{ $user->gender }}</td>
                                         <td>{{ $user->created_at }}</td>
                                         <td>

@@ -3,9 +3,7 @@
 @section('sidebar')
     @include('site.sidebar')
 @endsection
-@php
-    $articles = $user->article;
-@endphp
+
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -47,15 +45,17 @@
         </div>
 
 @if($user->role=='Работник')
-            <button class="w3-button w3-block w3-left-align" style="width: 400px" onclick="article()">
+    @if($user->article!=null)
+            {{--<button class="w3-button w3-block w3-left-align" style="width: 400px" onclick="article()">
                Все статьи пользователя:  <i class="fa fa-caret-down"></i>
             </button>
             <div id="article" class="w3-hide w3-white w3-card" style="width: 850px" >
                 @foreach($articles as $article)
                 <a style="border: 1px solid black; margin-bottom: 10px" class="btn btn-default" href="{{ url('$article/'.$article->id) }}" role="button"><h7>
                         {{str_limit($article->title,40)}}</h7></a><br>
-                @endforeach
+                @endforeach--}}
             </div>
+        @endif
 @endif
         <div align="right">
         </div>

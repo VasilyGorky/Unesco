@@ -18,10 +18,17 @@
 
                     {!! Form::open(['route'=>['article.update',$data['id']],'method' => 'put','file' => true, 'enctype'=>"multipart/form-data"]) !!}
                     @csrf
-                    <input type="hidden" id="user_id" name="user_id" value="{{ $data['user_id']}}">
                     <div class="form-group">
                     {{ Form::label('title','Название:') }}
                     {{ Form::text('title',$data['title'], ['required' => 'required', 'class' => 'form-control']) }}<br>
+                    </div>
+                    <div class="form-group">
+                    {{ Form::label('author','Автор:') }}
+                    {{ Form::text('author',$data['author'], ['required' => 'required', 'class' => 'form-control']) }}<br>
+                    </div>
+                    <div class="form-group">
+                    {{ Form::label('link','Ссылка на автора http://basilizu.beget.tech/(profile/{id}):') }}
+                    {{ Form::text('link',$data['link'], ['class' => 'form-control']) }}<br>
                     </div>
                     <div class="form-group">
                     {{ Form::label('published','Где и когда опубликована работа:') }}
