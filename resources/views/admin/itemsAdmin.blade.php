@@ -25,14 +25,8 @@
         @foreach($items as $item)
             <div class="" style="border-bottom: 1px solid #d6d8db;">
 
-                <div style=" margin-bottom: -20px;"><a class="btn btn-default" href="{{ url('admin/item/'.$item->id) }}" role="button">"{{$item->title}}"</a></div>
-                @php
-                    $user = $item->users;
-                 $firstname = $user->firstname;
-                $secondname = $user->secondname;
-                $id = $user->id;
-                @endphp
-                <div style="margin-left: 450px;"><b>Автор: </b><a class="btn btn-default" href="{{ url('profile/'.$id) }}">{{$firstname}} {{$secondname}}</a> <b>/ Создана: </b> {{$item->created_at}}</div>
+                <div style=" margin-bottom: -20px;"><a class="btn btn-default" href="{{ url('admin/item/'.$item->id) }}" role="button">"{{str_limit($item->title,70)}}"</a></div>
+                <div style="margin-left: 65%;"> <b>Создана: </b> {{$item->created_at}}</div>
 
                 <div align="right" style="margin-bottom: 10px">
                     @if(\Illuminate\Support\Facades\Auth::check())

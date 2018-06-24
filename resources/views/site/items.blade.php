@@ -88,7 +88,7 @@
                 </a>
                 <div class="card-body">
                     <h7 class="card-title"> <b><a href={{ url('item/'.$item->id) }}> {{$item->title}} </a></b></h7>
-                    <p class="card-text">{{$item->description}}</p>
+                    <p class="card-text">{{str_limit($item->description,60)}}</p>
                 </div>
                 <div class="card-footer">
                     <small class="text-muted">Добавлено: {{$item->created_at}}</small>
