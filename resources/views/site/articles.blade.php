@@ -22,7 +22,7 @@
         @endif
         @foreach($articles as $article)
 
-            <div class="card" style="width: 1100px; margin-left: 10%">
+            <div class="card" style="width: 1100px; margin-left: 10%; margin-top: 10px;">
                 <div class="card-header" style="margin-top: 0px;"><h6 style="margin-top: -2px;">АВТОР: <a class="btn btn-default" href="{{ url($article->link) }}">{{$article->author}}</a></h6>
                     <div style="margin-top: -20px">
                         @if($article->file != '0')
